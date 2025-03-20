@@ -15,6 +15,29 @@
             overflow-x: hidden;
         }
 
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #28a745;
+        }
+
         /* Main Container */
         .container {
             width: 100%;
@@ -98,24 +121,30 @@
 </head>
 <body>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="page.html">More About Organ Transplant</a>
+    </nav>
+
     <!-- Main Container -->
     <div class="container">
         <!-- Header Section -->
         <header>
-            <h1>About Organ Transplant technology.</h1>
-            <p>Organ Transplant technology</p>
+            <h1>About Organ Transplant Technology</h1>
+            <p>Understanding the science and process of organ transplantation</p>
         </header>
 
         <!-- Info Section -->
         <div class="info-section">
             <div class="info-block">
                 <h2>What is an organ transplant?</h2>
-                <p>An organ transplant is when a donor gives their healthy organ to somebody who has an organ beyond healing. Surgeons will remove the organ from the healthy donor and transplant it in the person. Some examples of organs that are commonly transplanted include the liver, kidney, heart, lungs, and more. </p>
+                <p>An organ transplant is when a donor gives their healthy organ to somebody who has an organ beyond healing. Surgeons will remove the organ from the healthy donor and transplant it into the person. Some examples of organs that are commonly transplanted include the liver, kidney, heart, lungs, and more.</p>
             </div>
 
             <div class="info-block">
                 <h2>The Process of Organ Transplantation</h2>
-                <p>The first step in ensuring an organ transplant goes to plan is making sure that the person receiving the organ has an eligible donor. All this means is ensuring the person donating their organ matches a certain criteria. Usually the doctor has to evaluate the donor and recipient on a case-by-case basis. Commonly, these are some of the things they look for when transplanting: healthy organ, organ size, blood type, and type of organ to prevent the recipient's body from rejecting the new organ. Next, they prioritize the patient's condition, and based on their condition, they will receive the organ first. The final part is the actual transplant, where the donor's organ is placed into the patient.</p>
+                <p>The first step in ensuring an organ transplant goes to plan is making sure that the person receiving the organ has an eligible donor. All this means is ensuring the person donating their organ matches a certain criteria. Usually, the doctor has to evaluate the donor and recipient on a case-by-case basis. Commonly, these are some of the things they look for when transplanting: healthy organ, organ size, blood type, and type of organ to prevent the recipient's body from rejecting the new organ. Next, they prioritize the patient's condition, and based on their condition, they will receive the organ first. The final part is the actual transplant, where the donor's organ is placed into the patient.</p>
             </div>
 
             <div class="info-block">
@@ -123,7 +152,6 @@
                 <p>Overall, this technology works by removing a damaged organ from a patient's body and removing the organ from the recipient while keeping it alive and transplanting it into the recipient to keep that part working and save a life.</p>
             </div>
 
-    
         </div>
 
     </div>
