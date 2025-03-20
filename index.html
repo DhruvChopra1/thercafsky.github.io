@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donation Awareness</title>
+    <style>
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+    }
+
+    .table-container {
+        max-height: 350px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        width: 50%;
+        padding: 20px;
+        text-align: center;
+        vertical-align: top;
+        border: 1px solid #ddd;
+    }
+
+    td img {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        margin: 5px 0;
+        font-size: 18px;
+    }
+
+    p strong {
+        font-size: 16px;
+        color: #5BBEE7;
+    }
+
+    p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .navbar {
+        background-color: #5BBEE7;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .navbar img {
+        height: 40px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 15px;
+    }
+    .navbar a {
+        color: white;
+        text-align: center;
+        padding: 8px 12px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        margin: 0;
+        padding-top: 50px;
+    }
+
+    header {
+        background: url('Backdrop.jpg') no-repeat center center;
+        background-size: cover;
+        min-height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+    header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+        position: relative;
+        z-index: 1;
+        font-size: 3rem;
+    }
+
+    .donate-button {
+        position: fixed;
+        top: 80px;
+        right: 10px;
+        background-color: #5BBEE7;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .section {
+        padding: 10px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+
+    .missions-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+    }
+    .missions-text {
+        flex: 1.5;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    .missions-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .missions-image img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .why-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    .why-text {
+        flex: 1.5;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    .why-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .why-image img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .sponsorship-tiers {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 0;
+    }
+
+    .tier {
+        min-width: 200px;
+        padding: 20px;
+        border: 1px solid #5BBEE7;
+        text-align: center;
+        font-weight: bold;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .contact-form input, .contact-form textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .contact-form button {
+        background-color: #5BBEE7;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .missions-container, .why-container {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#"><img src="logo.png" alt="Organ Donation Logo"></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#missions">Missions</a>
+            <a href="#executive-team">About Us</a>
+            <a href="#subscriptions">Subscriptions</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>Organ Donation Awareness</h1>
+    </header>
+
+    <a href="#donate" class="donate-button">Donate</a>
+
+    <div class="section" id="missions">
+        <h2>Mission to Save Lives</h2>
+        <div class="missions-container">
+            <div class="missions-text">
+                <p>Our mission is to raise awareness about the critical need for organ donors. Every day, thousands of people wait for a life-saving organ transplant. Many of these individuals do not have access to the medical care they need or the possibility of receiving a transplant. With your support, we can provide more people with the chance at a new life through organ donation. By educating and encouraging individuals to become organ donors, we aim to save countless lives and improve the quality of life for those suffering from organ failure. We need your support to make a difference.</p>
+            </div>
+            <div class="missions-image">
+                <img src="mission-image.jpg" alt="Organ Donation Awareness">
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="why">
+        <h2>Why Organ Donation Matters</h2>
+        <div class="why-container">
+            <div class="why-text">
+                <p>Organ donation is a gift of life. Many people suffer from end-stage organ failure and are in desperate need of a transplant. Without a transplant, their chances of survival are limited. Organ donation can significantly improve the quality of life for recipients, allowing them to lead a healthy and fulfilling life. Every donation is a chance to save a life, and with over 100,000 people currently waiting for organ transplants in the United States alone, your decision to donate can make a huge difference. It's an act of kindness that changes lives.</p>
+            </div>
+            <div class="why-image">
+                <img src="why-organ-donation.jpg" alt="Importance of Organ Donation">
+            </div>
+        </div>
+    </div>
+
+    <h2 id="executive-team">Meet Our Executive Team</h2>
+
+    <div class="table-container">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="default.png" alt="Executive 1">
+                        <h3>John Doe</h3>
+                        <p><strong>CEO</strong></p>
+                    </td>
+                    <td>
+                        <img src="default.png" alt="Executive 2">
+                        <h3>Jane Smith</h3>
+                        <p><strong>CFO</strong></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section" id="subscriptions">
+        <h2>Support Our Cause</h2>
+        <p>Different ways you can support the organ donation initiative.</p>
+        <div class="sponsorship-tiers">
+            <a href="#" class="tier">Tier 1<br>Basic recognition<br>$20</a>
+            <a href="#" class="tier">Tier 2<br>Social media shoutout<br>$100</a>
+            <a href="#" class="tier">Tier 3<br>Logo on event banners<br>$250</a>
+            <a
