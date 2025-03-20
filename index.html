@@ -6,53 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Organ Donation Awareness</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
         }
 
+        /* Header */
         header {
-            background-color: #28a745;
+            background-color: #6c757d;
             color: white;
-            padding: 15px 0;
+            padding: 40px 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
         }
 
         header h1 {
             margin: 0;
             font-size: 36px;
+            letter-spacing: 2px;
         }
 
+        /* Navigation Bar */
         nav {
-            background-color: #333;
+            background-color: #343a40;
             overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
             float: left;
             display: block;
             color: white;
-            text-align: center;
-            padding: 14px 20px;
+            padding: 16px 20px;
             text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #575757;
+            background-color: #28a745;
         }
 
+        /* Sections */
         section {
-            padding: 20px;
-            margin: 20px;
+            padding: 50px 20px;
+            margin: 20px auto;
             background-color: white;
             border-radius: 8px;
+            max-width: 1200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
         }
 
         h2 {
             color: #28a745;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .container {
@@ -60,61 +77,85 @@
             margin: 0 auto;
         }
 
+        /* Facts Section */
         .facts {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
+            padding: 0 10px;
         }
 
         .fact-box {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
+            background-color: #f7f7f7;
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .fact-box:hover {
+            transform: translateY(-10px);
             background-color: #28a745;
             color: white;
         }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .fact-box h3 {
+            font-size: 22px;
+            color: #333;
         }
 
+        /* Call to Action Section */
         .cta {
             background-color: #28a745;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 50px 20px;
             border-radius: 8px;
             margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
         }
 
         .cta a {
             color: white;
+            background-color: #333;
             text-decoration: none;
+            padding: 14px 30px;
             font-size: 18px;
             font-weight: bold;
-            padding: 10px 20px;
-            background-color: #333;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .cta a:hover {
             background-color: #575757;
         }
 
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
+
     <header>
         <h1>Organ Donation Saves Lives</h1>
     </header>
@@ -163,15 +204,14 @@
     </section>
 
     <section id="cta">
-        <div class="cta">
-            <h2>Make a Difference Today</h2>
-            <p>Your decision to become an organ donor could save lives. Register now and be a hero.</p>
-            <a href="#">Register Now</a>
-        </div>
+        <h2>Make a Difference Today</h2>
+        <p>Your decision to become an organ donor could save lives. Register now and be a hero.</p>
+        <a href="#">Register Now</a>
     </section>
 
     <footer>
         <p>&copy; 2025 Organ Donation Awareness</p>
     </footer>
+
 </body>
 </html>
