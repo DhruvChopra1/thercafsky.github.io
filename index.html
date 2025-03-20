@@ -13,58 +13,52 @@
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* CSS smooth scrolling */
         }
 
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #28a745;
-            color: white;
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            padding: 15px 20px;
             text-align: center;
-            padding: 0 20px;
-            position: relative;
-            background-image: url('https://source.unsplash.com/1600x900/?nature,donation'); /* Replace with a high-quality image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            animation: fadeIn 1s ease-out;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 1s;
+        }
+
+        nav a:hover {
+            color: #28a745;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 4rem;
-            letter-spacing: 3px;
+            font-size: 3.5rem;
+            color: #333;
             margin: 0;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         header p {
             font-size: 1.2rem;
-            margin-top: 20px;
-            line-height: 1.6;
+            color: #555;
+            margin-top: 15px;
         }
 
-        header a {
-            color: #28a745;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px 20px;
-            background-color: white;
-            border-radius: 50px;
-            margin-top: 30px;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-
-        header a:hover {
-            background-color: #f4f4f4;
-        }
-
-        /* About Section */
+        /* Main Content */
         .section {
             padding: 100px 20px;
             text-align: center;
@@ -86,40 +80,6 @@
             margin: 0 auto;
         }
 
-        /* Facts Section */
-        .facts {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .fact-box {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            flex: 1 1 calc(33.33% - 20px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .fact-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .fact-box h3 {
-            font-size: 2rem;
-            color: #28a745;
-        }
-
-        .fact-box p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -127,65 +87,26 @@
             background-color: #333;
             color: white;
         }
-
-        /* Keyframe Animation for Header */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .facts {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .fact-box {
-                flex: 1 1 100%;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-        }
-
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="page.html">Learn More</a>
+    </nav>
+
     <!-- Header Section -->
     <header>
-        <div>
-            <h1>Organ Donation Saves Lives</h1>
-            <p>Be a Hero. Save Lives. Make a Difference.</p>
-            <a href="#about">Learn More</a> <!-- This link points to the 'about' section -->
-        </div>
+        <h1>Organ Donation Saves Lives</h1>
+        <p>Be a Hero. Save Lives. Make a Difference.</p>
     </header>
 
-    <!-- About Section -->
+    <!-- Main Content -->
     <section id="about" class="section">
         <h2>What is Organ Donation?</h2>
-        <p>Organ donation is the process of giving an organ or tissue to someone in need of a transplant. By becoming an organ donor, you can save multiple lives. Your decision can help those who are waiting for life-saving organ transplants.</p>
-    </section>
-
-    <!-- Facts Section -->
-    <section id="facts" class="section">
-        <h2>Facts About Organ Donation</h2>
-        <div class="facts">
-            <div class="fact-box">
-                <h3>One Donor Can Save Up to 8 Lives</h3>
-                <p>Organs from a single donor can help save or improve the lives of 8 people.</p>
-            </div>
-            <div class="fact-box">
-                <h3>Thousands Are Waiting</h3>
-                <p>There are currently thousands of people on the organ transplant list, waiting for a life-saving donation.</p>
-            </div>
-            <div class="fact-box">
-                <h3>It's a Simple Process</h3>
-                <p>Registering as an organ donor is simple and could make a huge difference in someone’s life.</p>
-            </div>
-        </div>
+        <p>Organ donation is a life-saving process where organs from one person are transplanted into another to save their life. The most common types of organ donations are kidney, heart, liver, and lung transplants. Donors can be living or deceased, and organ transplants provide a second chance at life for individuals suffering from organ failure.</p>
     </section>
 
     <!-- Footer -->
