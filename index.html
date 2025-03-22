@@ -13,7 +13,7 @@
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* CSS smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         /* Navigation Bar */
@@ -50,7 +50,7 @@
             text-align: center;
             padding: 0 20px;
             position: relative;
-            background-image: url('https://source.unsplash.com/1600x900/?nature,donation'); /* Replace with a high-quality image */
+            background-image: url('https://source.unsplash.com/1600x900/?nature,donation');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -109,38 +109,37 @@
             margin: 0 auto;
         }
 
-        /* Facts Section */
-        .facts {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+        /* Sign-Up Section */
+        .signup-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e0e0e0;
             margin-top: 50px;
         }
 
-        .fact-box {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            flex: 1 1 calc(33.33% - 20px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .signup-section h2 {
+            font-size: 2.5rem;
+            color: #333;
         }
 
-        .fact-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        .signup-section p {
+            font-size: 1.2rem;
+            margin: 20px 0;
         }
 
-        .fact-box h3 {
-            font-size: 2rem;
-            color: #28a745;
+        .signup-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #28a745;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s;
         }
 
-        .fact-box p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
+        .signup-button:hover {
+            background-color: #218838;
         }
 
         /* Footer */
@@ -150,29 +149,6 @@
             background-color: #333;
             color: white;
         }
-
-        /* Keyframe Animation for Header */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .facts {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .fact-box {
-                flex: 1 1 100%;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -188,33 +164,21 @@
         <div>
             <h1>Organ Donation Saves Lives</h1>
             <p>Be a Hero. Save Lives. Make a Difference.</p>
-            <a href="#about">Learn More</a> <!-- This link points to the 'about' section -->
+            <a href="#about">Learn More</a>
         </div>
     </header>
 
     <!-- About Section -->
     <section id="about" class="section">
         <h2>Why Donate?</h2>
-        <p>Organ transplants have been an essential part of people's lives. The surgeries has saved countless lives over the years.</p>
+        <p>Organ transplants have been an essential part of people's lives. The surgeries have saved countless lives over the years.</p>
     </section>
 
-    <!-- Facts Section -->
-    <section id="facts" class="section">
-        <h2>Facts About Organ Donation</h2>
-        <div class="facts">
-            <div class="fact-box">
-                <h3>One Donor Can Save Up to 8 Lives</h3>
-                <p>Organs from a single donor can help save or improve the lives of 8 people.</p>
-            </div>
-            <div class="fact-box">
-                <h3>Thousands Are Waiting</h3>
-                <p>There are currently thousands of people on the organ transplant list, waiting for a life-saving donation.</p>
-            </div>
-            <div class="fact-box">
-                <h3>It's a Simple Process</h3>
-                <p>Registering as an organ donor is simple and could make a huge difference in someone’s life.</p>
-            </div>
-        </div>
+    <!-- Sign-Up Section -->
+    <section class="signup-section">
+        <h2>Ready to Make a Difference?</h2>
+        <p>Sign up to become an organ donor today and help save lives.</p>
+        <a href="#" class="signup-button">Sign Up</a>
     </section>
 
     <!-- Footer -->
