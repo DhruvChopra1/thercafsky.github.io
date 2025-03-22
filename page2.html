@@ -69,10 +69,12 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 10px;
+            letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         /* Content Sections */
@@ -81,18 +83,27 @@
             max-width: 1000px;
             margin: auto;
             text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: -50px; /* Overlapping with hero section */
+            z-index: 2;
+            position: relative;
         }
 
         .section h2 {
             font-size: 2.5rem;
             color: #28a745;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #555;
+            margin-bottom: 40px;
         }
 
         .info-grid {
@@ -103,11 +114,12 @@
         }
 
         .info-box {
-            background: white;
+            background: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #28a745;
         }
 
         .info-box:hover {
@@ -121,6 +133,12 @@
             margin-bottom: 10px;
         }
 
+        .info-box p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -129,6 +147,27 @@
             color: white;
             margin-top: 50px;
         }
+
+        /* Button Section */
+        .button-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .cta-button {
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
     </style>
 </head>
 <body>
@@ -150,25 +189,30 @@
     <!-- Main Content -->
     <div class="section">
         <h2>What to Expect After a Transplant</h2>
-        <p>#</p>
+        <p>Life after organ transplant is a journey that involves many phases. It is crucial to understand the recovery process, medications, emotional changes, and the importance of long-term health monitoring.</p>
         <div class="info-grid">
             <div class="info-box">
                 <h3>Recovery Process</h3>
-                <p>#</p>
+                <p>After a transplant, the body needs time to heal. This section covers the stages of recovery, physical therapy, and the importance of following medical guidelines.</p>
             </div>
             <div class="info-box">
                 <h3>Immunosuppressive Medications</h3>
-                <p>#</p>
+                <p>These medications are crucial for preventing organ rejection. Learn about their purpose, side effects, and how they help the body accept the new organ.</p>
             </div>
             <div class="info-box">
                 <h3>Emotional & Mental Effects</h3>
-                <p>#</p>
+                <p>The emotional impact of a transplant is significant. This section explores how patients cope with the mental challenges after the procedure and ways to seek support.</p>
             </div>
             <div class="info-box">
                 <h3>Long-Term Health Monitoring</h3>
-                <p>#</p>
+                <p>Regular check-ups and monitoring are vital for the health of the transplanted organ. This section outlines the tests and health metrics that must be tracked for the long term.</p>
             </div>
         </div>
+    </div>
+
+    <!-- Call to Action Button -->
+    <div class="button-section">
+        <a href="https://www.services.gov.on.ca/wps95/portal/s2i/!ut/p/z1/dctRC4IwFIbhf7QzZ5hdmoSBXQgTaruRo64xlDNJU-jXZ94VdPm9PB9ouIEmnJ3FyXnCft1KR1UmTjwIMr47lyXn0aU4JHGehzwNQa1g_xfIACRo0FK4IzZd6a-OWr-AapB5YtbPbBSOLVtlvn2wccLpOX59CrTm9zGsbfOO7v6jeyQLyhBIQ1WawNBh_TJ1_AbVfydN/" class="cta-button">Become a Donor</a>
     </div>
 
     <!-- Footer -->
