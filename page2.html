@@ -6,17 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Life After Organ Transplant</title>
     <style>
-        /* Global Styles */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #28a745; /* Lighter background */
+            background-color: #28a745;
             color: #333;
             overflow-x: hidden;
         }
-
-        /* Navigation Bar */
         nav {
             background-color: #333;
             padding: 15px 20px;
@@ -25,7 +22,6 @@
             top: 0;
             z-index: 1000;
         }
-
         nav a {
             color: white;
             text-decoration: none;
@@ -34,12 +30,9 @@
             font-weight: bold;
             transition: color 0.3s;
         }
-
         nav a:hover {
-            color: #28a745; /* Green color on hover */
+            color: #28a745;
         }
-
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -52,173 +45,139 @@
             position: relative;
             color: white;
         }
-
         .hero::before {
             content: "";
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Darker overlay for better readability */
+            background: rgba(0, 0, 0, 0.4);
         }
-
         .hero-content {
             position: relative;
             max-width: 800px;
         }
-
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        /* Content Sections */
         .section {
             padding: 80px 20px;
             max-width: 1000px;
             margin: auto;
             text-align: center;
-            background-color: #fff; /* White background */
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-top: -50px;
             z-index: 2;
             position: relative;
         }
-
-        .section h2 {
-            font-size: 2.5rem;
-            color: #28a745;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 40px;
-        }
-
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
         .info-box {
-            background: #fff;
-            padding: 30px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .info-box.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+        .flip-card-front {
+            background: #fff;
             border: 2px solid #28a745;
         }
-
-        .info-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .info-box h3 {
-            font-size: 1.8rem;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-
-        .info-box p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #333;
+        .flip-card-back {
+            background: #28a745;
             color: white;
-            margin-top: 50px;
+            transform: rotateY(180deg);
         }
-
-        /* Button Section */
-        .button-section {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .cta-button {
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #218838; /* Darker green on hover */
-        }
-
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="page.html">More About Organ Transplant</a>
+        <a href="page2.html">Life After Organ Transplant</a>
     </nav>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Life After Organ Transplant</h1>
             <p>Understanding the recovery process and long-term effects of organ transplantation</p>
         </div>
     </section>
-
-    <!-- Main Content -->
     <div class="section">
         <h2>What to Expect After a Transplant</h2>
-        <p>Life after organ transplant is a journey that involves many phases. It is crucial to understand the recovery process, medications, emotional changes, and the importance of long-term health monitoring.</p>
         <div class="info-grid">
-            <div class="info-box">
-                <h3>Recovery Process</h3>
-                <p>After a transplant, the body needs time to heal. This section covers the stages of recovery, physical therapy, and the importance of following medical guidelines.</p>
+            <div class="info-box" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Recovery Process</h3>
+                        <p>Click to flip</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Fill in your own content here</p>
+                    </div>
+                </div>
             </div>
-            <div class="info-box">
-                <h3>Medications</h3>
-                <p>These medications are crucial for preventing organ rejection. Learn about their purpose, side effects, and how they help the body accept the new organ.</p>
+            <div class="info-box" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Medications</h3>
+                        <p>Click to flip</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Fill in your own content here</p>
+                    </div>
+                </div>
             </div>
-            <div class="info-box">
-                <h3>Emotional & Mental Effects</h3>
-                <p>The emotional impact of a transplant is significant. This section explores how patients cope with the mental challenges after the procedure and ways to seek support.</p>
+            <div class="info-box" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Emotional & Mental Effects</h3>
+                        <p>Click to flip</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Fill in your own content here</p>
+                    </div>
+                </div>
             </div>
-            <div class="info-box">
-                <h3>Long-Term Health Monitoring</h3>
-                <p>Regular check-ups and monitoring are vital for the health of the transplanted organ. This section outlines the tests and health metrics that must be tracked for the long term.</p>
+            <div class="info-box" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Long-Term Health Monitoring</h3>
+                        <p>Click to flip</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Fill in your own content here</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Call to Action Button -->
-    <div class="button-section">
-        <a href="https://www.services.gov.on.ca/wps95/portal/s2i/!ut/p/z1/dctRC4IwFIbhf7QzZ5hdmoSBXQgTaruRo64xlDNJU-jXZ94VdPm9PB9ouIEmnJ3FyXnCft1KR1UmTjwIMr47lyXn0aU4JHGehzwNQa1g_xfIACRo0FK4IzZd6a-OWr-AapB5YtbPbBSOLVtlvn2wccLpOX59CrTm9zGsbfOO7v6jeyQLyhBIQ1WawNBh_TJ1_AbVfydN/" class="cta-button">Become a Donor</a>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Organ Donation Awareness</p>
     </footer>
-
 </body>
 </html>
