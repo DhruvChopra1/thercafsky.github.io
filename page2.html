@@ -6,114 +6,237 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Life After Organ Transplant</title>
     <style>
+        /* Base styles with improved color scheme */
+        :root {
+            --primary-color: #28a745;
+            --primary-dark: #1e7e34;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-main: 'Arial', sans-serif;
+            --transition-speed: 0.6s;
+        }
+        
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
         }
+        
+        /* Improved navigation */
         nav {
-            background-color: #333;
+            background-color: var(--dark-color);
             padding: 15px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
+        
         nav a:hover {
-            color: #28a745;
+            color: white;
+            background-color: var(--primary-color);
         }
+        
+        /* Enhanced hero section */
         .hero {
-            height: 50vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-image: url('https://source.unsplash.com/1600x900/?health,hospital');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?health,hospital');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 20px;
+            margin-bottom: 30px;
         }
+        
         .hero-content {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
             border-radius: 10px;
+            max-width: 800px;
         }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        
+        /* Section styling */
         .section {
             padding: 60px 20px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
             text-align: center;
         }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* Fixed info grid layout */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 30px;
+            margin-top: 30px;
         }
+        
+        /* Improved flip card styling */
         .info-box {
             perspective: 1000px;
             cursor: pointer;
+            height: 220px; /* Fixed height to prevent overlapping */
         }
+        
         .flip-card-inner {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 100%; /* Use 100% of parent height */
             transform-style: preserve-3d;
-            transition: transform 0.6s;
+            transition: transform var(--transition-speed);
         }
+        
         .info-box.flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
+        
         .flip-card-front, .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            text-align: center;
+            box-sizing: border-box; /* Ensures padding doesn't increase element size */
         }
+        
         .flip-card-front {
             background: white;
-            border: 2px solid #28a745;
+            border: 2px solid var(--primary-color);
         }
+        
+        .flip-card-front h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        
+        .flip-card-front p {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
         .flip-card-back {
-            background: #28a745;
+            background: var(--primary-color);
             color: white;
             transform: rotateY(180deg);
         }
+        
+        .flip-card-back p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Improved footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
+            padding: 25px;
+            background-color: var(--dark-color);
             color: white;
-            margin-top: 40px;
+            margin-top: 60px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
+            .info-grid {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav {
+                padding: 10px;
+            }
+            
+            nav a {
+                margin: 0 5px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="page.html">More About Organ Transplant</a>
-        <a href="page2.html">Life After Organ Transplant</a>
+        <a href="page.html">About Transplants</a>
+        <a href="page2.html">Life After Transplant</a>
     </nav>
     <section class="hero">
         <div class="hero-content">
             <h1>Life After Organ Transplant</h1>
-            <p>Understanding the recovery process and long-term effects</p>
+            <p>Understanding the recovery process and long-term effects of transplantation</p>
         </div>
     </section>
     <div class="section">
@@ -123,10 +246,10 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h3>Recovery Process</h3>
-                        <p>Click to Flip</p>
+                        <p>Click to learn more</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Recovery takes months, requiring rest and medical monitoring.</p>
+                        <p>Recovery typically takes 3-6 months, requiring rest, careful monitoring, and regular hospital visits to ensure the new organ is functioning properly.</p>
                     </div>
                 </div>
             </div>
@@ -134,21 +257,21 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h3>Medications</h3>
-                        <p>Click to Flip</p>
+                        <p>Click to learn more</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Immunosuppressants prevent rejection but require careful use.</p>
+                        <p>Immunosuppressants prevent rejection by reducing immune system activity. These medications must be taken precisely as prescribed for the rest of your life.</p>
                     </div>
                 </div>
             </div>
             <div class="info-box" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Mental Effects</h3>
-                        <p>Click to Flip</p>
+                        <h3>Mental Health</h3>
+                        <p>Click to learn more</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Emotional support is essential for post-transplant well-being.</p>
+                        <p>Many recipients experience a range of emotions post-transplant. Support groups, counseling, and family support are vital for psychological well-being.</p>
                     </div>
                 </div>
             </div>
@@ -156,17 +279,31 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h3>Health Monitoring</h3>
-                        <p>Click to Flip</p>
+                        <p>Click to learn more</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Regular check-ups ensure organ function and long-term health.</p>
+                        <p>Regular blood tests, biopsies, and check-ups are essential to monitor organ function and detect any signs of rejection early for prompt treatment.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 Organ Donation Awareness</p>
+        <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
     </footer>
+
+    <script>
+        // This ensures only one card is flipped at a time
+        document.querySelectorAll('.info-box').forEach(box => {
+            box.addEventListener('click', function() {
+                // Unflip all other boxes
+                document.querySelectorAll('.info-box.flipped').forEach(flippedBox => {
+                    if (flippedBox !== this) {
+                        flippedBox.classList.remove('flipped');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
