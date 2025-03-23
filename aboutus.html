@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Our Team</title>
+    <style>
+        /* Global Variables for Consistent Styling - Matching existing page */
+        :root {
+            --primary-color: #28a745;
+            --primary-dark: #1e7e34;
+            --secondary-color: #28a745;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-main: 'Arial', sans-serif;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar - Matched with existing page */
+        nav {
+            background-color: var(--dark-color);
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: var(--primary-color);
+        }
+
+        /* Header Styles - Matched with existing page */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?team,medical');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* About Section Styling */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Team Members Section */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            flex: 1 1 calc(50% - 40px);
+            min-width: 300px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder-text {
+            color: #999;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .member-info {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .member-name {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .member-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .member-bio {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 100px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Values Section */
+        .values-section {
+            background-color: var(--light-color);
+            padding: 80px 20px;
+        }
+
+        .values-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-box {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            flex: 1 1 calc(33.33% - 40px);
+            min-width: 250px;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .value-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .value-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+
+        .value-box p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            margin-top: 50px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed) ease;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .contact-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer - Matched with existing page */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 60px;
+        }
+
+        /* Media Queries - For responsiveness */
+        @media (max-width: 900px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            
+            .team-member {
+                flex: 1 1 calc(100% - 40px);
+            }
+            
+            .value-box {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
+            .value-box {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 40vh;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar - Matched with existing page -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="page.html">About Transplants</a>
+        <a href="page2.html">Life After Transplant</a>
+        <a href="aboutus.html">About Us</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Our Team</h1>
+            <p>Dedicated students committed to raising awareness about organ donation</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>Who We Are</h2>
+        <p>We are passionate advocates for organ donation awareness. Our team combines expertise in healthcare, communication, and community outreach to spread our message effectively. Together, we're helping to close the gap between those in need of transplants and available donors.</p>
+        
+        <!-- Team Members Section -->
+        <div class="team-container">
+            <div class="team-member">
+                <div class="member-image">
+                    <span class="placeholder-text">Team Member Image</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dhruv Chopra</h3>
+                    <p class="member-title">Partner 1</p>
+                    <p class="member-bio">My name is Dhruv and I am a student at Port Credit S.S.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/dhruv-chopra-a23088357/" aria-label="LinkedIn"><i class="fab fa-linkedin-in">in</i></a>
+                        <a href="mailto:1004382@pdsb.net?subject=Your%20Subject&body=Your%20Message">Send Email</a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <span class="placeholder-text">Team Member Image</span>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Aayush</h3>
+                    <p class="member-title">Partner 2</p>
+                    <p class="member-bio">Hello everyone, my name is aaysuh and I am a scholar at Port Credit SS.</p>
+                    <div class="social-links">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <h2>Our Core Values</h2>
+        <div class="values-container">
+            <div class="value-box">
+                <h3>Compassion</h3>
+                <p>We approach our mission with deep empathy for both potential donors and recipients, recognizing the profound human impact of each decision to become a donor.</p>
+            </div>
+            <div class="value-box">
+                <h3>Education</h3>
+                <p>We believe in providing clear, factual information about organ donation, dispelling myths and helping people make informed decisions about becoming donors.</p>
+            </div>
+            <div class="value-box">
+                <h3>Advocacy</h3>
+                <p>We actively work to improve systems and policies that affect organ donation and transplantation, ensuring more lives can be saved through this precious gift.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Have questions about our organization or want to join our mission? We'd love to hear from you!</p>
+        <a href="mailto:1004382@pdsb.net?subject=Your%20Subject&body=Your%20Message">Send Email</a>
+    </section>
+
+    <!-- Footer - Matched with existing page -->
+    <footer>
+        <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
+    </footer>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
