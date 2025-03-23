@@ -6,47 +6,95 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>More About Organ Transplant</title>
     <style>
+        /* Global Variables for Consistent Styling */
+        :root {
+            --primary-color: #28a745;
+            --primary-dark: #1e7e34;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-main: 'Arial', sans-serif;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
+            --transition-speed: 0.3s;
+        }
+
         /* Global Styles */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Navigation Bar */
+        /* Improved Navigation Bar */
         nav {
-            background-color: #333;
+            background-color: var(--dark-color);
             padding: 15px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all var(--transition-speed) ease;
         }
 
         nav a:hover {
-            color: #28a745;
+            color: white;
+            background-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?surgery,medical');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
         /* Main Container */
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: auto;
-            padding: 50px 20px;
+            margin: 40px auto;
+            padding: 40px;
             background-color: #fff;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
         }
 
         /* Header Section */
@@ -55,73 +103,243 @@
             margin-bottom: 50px;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            color: #28a745;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
 
         header p {
             font-size: 1.2rem;
-            color: #555;
-            margin-top: 15px;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 15px auto 0;
         }
 
-        /* Section with Blocks */
+        /* Section with Blocks - Improved Layout */
         .info-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
         .info-block {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             padding: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #28a745;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .info-block:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .info-block-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .info-block-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .info-block h2 {
-            font-size: 2rem;
-            color: #28a745;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 0;
+            flex: 1;
         }
 
         .info-block p {
             font-size: 1.1rem;
             color: #555;
             line-height: 1.8;
+            flex-grow: 1;
         }
 
-        /* Media Queries for Mobile */
-        @media (max-width: 768px) {
-            header h1 {
+        .read-more-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .read-more-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 40px;
+            margin: 60px -40px;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 60px 0 20px;
+            padding: 30px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed) ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 900px) {
+            .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            header h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+            
+            .stats-section {
+                margin: 40px -30px;
+                padding: 40px 20px;
+            }
+        }
 
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
             .info-section {
                 grid-template-columns: 1fr; /* Stack blocks on mobile */
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 15px;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-section {
+                margin: 30px -20px;
+                padding: 30px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
+            padding: 25px;
+            background-color: var(--dark-color);
             color: white;
-            margin-top: 50px;
-            border-radius: 0 0 10px 10px;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -130,50 +348,108 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Home</a>
-        <a href="page.html">More About Organ Transplant</a>
+        <a href="page.html">About Transplants</a>
+        <a href="page2.html">Life After Transplant</a>
     </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Organ Transplant Technology</h1>
+            <p>Understanding the science and process that has saved millions of lives worldwide</p>
+        </div>
+    </section>
 
     <!-- Main Container -->
     <div class="container">
         <!-- Header Section -->
         <header>
-            <h1>About Organ Transplant Technology</h1>
-            <p>Understanding the science and process of organ transplantation</p>
+            <h2>The Science of Giving Life</h2>
+            <p>Organ transplantation is one of the greatest achievements in modern medicine, allowing doctors to replace failing organs with healthy ones from donors. Learn more about this life-saving procedure below.</p>
         </header>
 
         <!-- Info Section -->
         <div class="info-section">
             <div class="info-block">
-                <h2>What is an organ transplant?</h2>
-                <p>An organ transplant is when a donor gives their healthy organ to somebody who has an organ beyond healing. Some examples of commonly transplanted organs include the liver, kidney, heart, and lungs.</p>
+                <div class="info-block-header">
+                    <div class="info-block-icon">1</div>
+                    <h2>What is an Organ Transplant?</h2>
+                </div>
+                <p>An organ transplant is a surgical procedure where a failing or damaged organ is removed and replaced with a functioning one from a donor. This life-saving procedure is performed for organs that are vital for survival when they've been damaged beyond repair by disease or injury. Commonly transplanted organs include kidneys, liver, heart, lungs, pancreas, and intestines.</p>
+                <a href="#" class="read-more-link">Learn more about transplant types →</a>
             </div>
 
             <div class="info-block">
-                <h2>The Process of Organ Transplantation</h2>
-                <p>Successful transplantation requires a suitable donor match. Doctors evaluate blood type, organ size, and overall health before prioritizing patients in need.</p>
+                <div class="info-block-header">
+                    <div class="info-block-icon">2</div>
+                    <h2>The Transplantation Process</h2>
+                </div>
+                <p>Successful transplantation requires careful matching between donor and recipient. Doctors evaluate blood type, tissue compatibility, organ size, medical urgency, and waiting time before determining priority. Once a match is found, the organ is carefully preserved and transported to the recipient's location, where surgeons perform the intricate procedure to connect the new organ to the body's systems.</p>
+                <a href="#" class="read-more-link">Understand organ matching →</a>
             </div>
 
             <div class="info-block">
-                <h2>How Does it Work?</h2>
-                <p>The process involves removing a damaged organ and replacing it with a functioning organ from a donor, ensuring continued bodily function.</p>
+                <div class="info-block-header">
+                    <div class="info-block-icon">3</div>
+                    <h2>How It Works</h2>
+                </div>
+                <p>The transplant procedure involves carefully removing the damaged organ while preserving vital connections to blood vessels and other tissues. Surgeons then implant the donor organ, connecting blood vessels and other necessary structures. Once these connections are established, blood flow is restored to the new organ, allowing it to begin functioning in its new body. The entire procedure requires extraordinary precision and expertise.</p>
+                <a href="#" class="read-more-link">See the surgical process →</a>
             </div>
             
             <div class="info-block">
-                <h2>What Is to be expected?</h2>
-                <p>After surgery, patients undergo intensive monitoring, medication, and regular checkups to ensure the transplanted organ functions properly.</p>
+                <div class="info-block-header">
+                    <div class="info-block-icon">4</div>
+                    <h2>Post-Transplant Care</h2>
+                </div>
+                <p>After surgery, patients undergo intensive monitoring in a specialized unit. Immunosuppressant medications are given to prevent the body from rejecting the new organ. Recipients must adhere to a strict medication schedule, attend regular check-ups, and follow specific lifestyle guidelines. This careful management is essential for the transplanted organ to continue functioning properly and for the patient to live a healthy life.</p>
+                <a href="#" class="read-more-link">Explore recovery and aftercare →</a>
             </div>
 
             <div class="info-block">
-                <h2>More on Why.</h2>
-                <p>Organ transplantation saves lives. In 2022 alone, over 40,000 organ transplants were performed in the USA, giving recipients a second chance at life.</p>
+                <div class="info-block-header">
+                    <div class="info-block-icon">5</div>
+                    <h2>The Impact</h2>
+                </div>
+                <p>Organ transplantation has revolutionized medicine and saved countless lives. In 2022 alone, over 40,000 organ transplants were performed in the USA, giving recipients a second chance at life. Beyond survival, transplants dramatically improve quality of life, allowing recipients to return to work, family responsibilities, and activities they enjoy. Each successful transplant represents both medical achievement and the profound generosity of donors and their families.</p>
+                <a href="#" class="read-more-link">Read success stories →</a>
             </div>
         </div>
 
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <h2>The Impact of Organ Donation</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">106,000+</div>
+                    <div class="stat-label">People on the waiting list</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">People die each day waiting</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Lives saved by one donor</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">75</div>
+                    <div class="stat-label">Transplants each day</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <h2>Make a Difference Today</h2>
+            <p>By registering as an organ donor, you can help save lives and bring hope to those in need. The process is simple and takes just a few minutes.</p>
+            <a href="https://www.organdonor.gov/register.html" class="cta-button">Register as a Donor</a>
+        </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Organ Donation Awareness</p>
+        <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
     </footer>
 
 </body>
