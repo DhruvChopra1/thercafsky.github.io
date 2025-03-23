@@ -1,605 +1,831 @@
-<!-- Types of Organ Transplants Section -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<section class="transplant-types-section" id="transplant-types">
-    <header>
-        <h2>Types of Organ Transplants</h2>
-        <p>Each type of organ transplant presents unique challenges and benefits. Explore the different procedures below to learn about these life-saving operations.</p>
-    </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Organ Donation Awareness</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Global Variables for Consistent Styling */
+        :root {
+            --primary-color: #28a745;
+            --primary-dark: #1e7e34;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-main: 'Arial', sans-serif;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
+            --transition-speed: 0.3s;
+        }
 
-    <div class="transplant-carousel">
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <!-- Kidney Transplant -->
-                <div class="transplant-card" id="kidney">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://med.stanford.edu/content/dam/sm-news/images/2014/06/kidney-stock.jpg" alt="Kidney Icon">
-                        </div>
-                        <h3>Kidney Transplant</h3>
-                        <p class="card-brief">Most common type of organ transplant performed worldwide.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Kidney Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 90-95% one-year survival rate</p>
-                            <p><strong>Waiting List:</strong> Approximately 90,000 people</p>
-                            <p><strong>Living Donors:</strong> Possible (a person can live with just one kidney)</p>
-                            <p>Kidney transplants are performed to replace kidneys damaged by conditions like diabetes, high blood pressure, and polycystic kidney disease. The procedure typically takes 3-4 hours.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-                <!-- Liver Transplant -->
-                <div class="transplant-card" id="liver">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://english-blog.s3.amazonaws.com/uploads/2020/02/Apprehend-These-General-Symptoms-of-liver-problems-by-Dr.-Mukul-Rastogi.jpg" alt="Liver Icon">
-                        </div>
-                        <h3>Liver Transplant</h3>
-                        <p class="card-brief">Second most common transplant, with partial donation possible.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Liver Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 75-85% five-year survival rate</p>
-                            <p><strong>Waiting List:</strong> Around 11,000 people</p>
-                            <p><strong>Living Donors:</strong> Possible (partial liver donation)</p>
-                            <p>Liver transplants treat end-stage liver disease and acute liver failure. The liver's unique ability to regenerate allows for living donation where a portion of a healthy liver can be transplanted.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
+        /* Navigation Bar */
+        nav {
+            background-color: var(--dark-color);
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-                <!-- Heart Transplant -->
-                <div class="transplant-card" id="heart">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://static.scientificamerican.com/sciam/cache/file/FD15AD20-2802-451C-942571A139012C77_source.jpg?crop=1%3A1%2Csmart&w=1000" alt="Heart Icon">
-                        </div>
-                        <h3>Heart Transplant</h3>
-                        <p class="card-brief">Life-saving procedure for end-stage heart failure.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Heart Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 85-90% one-year survival rate</p>
-                            <p><strong>Waiting List:</strong> About 3,500 people</p>
-                            <p><strong>Living Donors:</strong> Not possible</p>
-                            <p>Heart transplants are performed for patients with severe heart failure who have not responded to other treatments. The procedure is complex and requires careful matching of donor size and blood type.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all var(--transition-speed) ease;
+        }
 
-                <!-- Lung Transplant -->
-                <div class="transplant-card" id="lung">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://cdn.3d4medical.com/media/blog/auscultation-lungs/snippet-auscultation-lungs.jpg" alt="Lung Icon">
-                        </div>
-                        <h3>Lung Transplant</h3>
-                        <p class="card-brief">Can involve one or both lungs depending on the condition.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Lung Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 80-85% one-year survival rate</p>
-                            <p><strong>Waiting List:</strong> Around 1,000 people</p>
-                            <p><strong>Living Donors:</strong> Possible (lobar donation)</p>
-                            <p>Lung transplants treat advanced lung diseases like cystic fibrosis, COPD, and pulmonary fibrosis. Single lung, double lung, or heart-lung transplants may be performed depending on the patient's condition.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
+        nav a:hover {
+            color: white;
+            background-color: var(--primary-color);
+        }
 
-                <!-- Pancreas Transplant -->
-                <div class="transplant-card" id="pancreas">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://media.istockphoto.com/id/1401150101/vector/pancreas-human-internal-organ-anatomy-vector-illustration-on-a-white-background-flat-design.jpg?s=612x612&w=0&k=20&c=2z2BLXqOGNBfWCa2wpaWfSrX-cnwSymyM9MvjIuV1bQ=" alt="Pancreas Icon">
-                        </div>
-                        <h3>Pancreas Transplant</h3>
-                        <p class="card-brief">Often performed alongside kidney transplants for diabetic patients.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Pancreas Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 75-80% one-year graft survival</p>
-                            <p><strong>Waiting List:</strong> Approximately 1,200 people</p>
-                            <p><strong>Living Donors:</strong> Not typically possible</p>
-                            <p>Pancreas transplants are primarily performed for type 1 diabetes patients with kidney failure. The procedure can free patients from insulin dependency and prevent further diabetic complications.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?donation,medical');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeIn 1s ease-out;
+        }
 
-                <!-- Intestinal Transplant -->
-                <div class="transplant-card" id="intestine">
-                    <div class="card-front">
-                        <div class="card-icon">
-                            <img src="https://innerbody.imgix.net/intestines.png" alt="Intestine Icon">
-                        </div>
-                        <h3>Intestinal Transplant</h3>
-                        <p class="card-brief">Rare and complex procedure for intestinal failure.</p>
-                        <button class="flip-button">Learn More</button>
-                    </div>
-                    <div class="card-back">
-                        <h3>Intestinal Transplant</h3>
-                        <div class="back-content">
-                            <p><strong>Success Rate:</strong> 65-70% one-year survival rate</p>
-                            <p><strong>Waiting List:</strong> Around 250 people</p>
-                            <p><strong>Living Donors:</strong> Not possible</p>
-                            <p>Intestinal transplants are performed for patients with intestinal failure who cannot absorb nutrients and require total parenteral nutrition (TPN). This complex procedure may include transplantation of multiple organs.</p>
-                        </div>
-                        <button class="flip-button">Back</button>
-                    </div>
-                </div>
-            </div>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-            <!-- Navigation Arrows -->
-            <button class="carousel-nav prev-button">&lt;</button>
-            <button class="carousel-nav next-button">&gt;</button>
-        </div>
+        .header-content {
+            max-width: 800px;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
 
-        <!-- Dots Navigation -->
-        <div class="carousel-dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-            <span class="dot" data-index="4"></span>
-            <span class="dot" data-index="5"></span>
-        </div>
-    </div>
+        header h1 {
+            font-size: 4rem;
+            letter-spacing: 3px;
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-    <div class="interactive-overview">
-        <h3>Organ Transplantation: By the Numbers</h3>
-        <div class="interactive-chart">
-            <div class="chart-container">
-                <canvas id="transplantChart"></canvas>
-            </div>
-        </div>
-        <div class="chart-legend">
-            <p>Select a transplant type above to see detailed statistics and information.</p>
-            <div class="legend-items">
-                <span class="legend-item kidney-color">Kidney</span>
-                <span class="legend-item liver-color">Liver</span>
-                <span class="legend-item heart-color">Heart</span>
-                <span class="legend-item lung-color">Lung</span>
-                <span class="legend-item pancreas-color">Pancreas</span>
-                <span class="legend-item intestine-color">Intestine</span>
-            </div>
-        </div>
-    </div>
-</section>
+        header p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
 
-<!-- CSS for the Transplant Types Section -->
-<style>
-    /* Transplant Types Section */
-    .transplant-types-section {
-        margin: 60px 0;
-        padding: 40px;
-        background-color: #f9f9f9;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-    }
+        header a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 25px;
+            background-color: white;
+            border-radius: 50px;
+            margin-top: 30px;
+            display: inline-block;
+            transition: all var(--transition-speed) ease;
+            box-shadow: var(--box-shadow);
+        }
 
-    .transplant-types-section header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
+        header a:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
+        }
 
-    .transplant-types-section header h2 {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        margin: 0 0 15px 0;
-        position: relative;
-        display: inline-block;
-    }
+        /* About Section */
+        .section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: white;
+            color: var(--dark-color);
+        }
 
-    .transplant-types-section header h2::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background-color: var(--primary-color);
-    }
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
 
-    .transplant-types-section header p {
-        font-size: 1.2rem;
-        color: var(--secondary-color);
-        max-width: 800px;
-        margin: 15px auto 0;
-    }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
 
-    /* Carousel Styles */
-    .transplant-carousel {
-        position: relative;
-        margin: 40px auto;
-        max-width: 1000px;
-    }
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    .carousel-container {
-        position: relative;
-        overflow: hidden;
-        padding: 20px 0;
-    }
+        /* Facts Section */
+        .facts {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
+        .fact-box {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            flex: 1 1 calc(33.33% - 40px);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border-left: 5px solid var(--primary-color);
+        }
 
-    .transplant-card {
-        min-width: 300px;
-        height: 400px;
-        margin: 0 15px;
-        perspective: 1000px;
-        position: relative;
-    }
+        .fact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
 
-    .card-front, .card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        transition: transform 0.6s;
-        border-radius: var(--border-radius);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--box-shadow);
-    }
+        .fact-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
 
-    .card-front {
-        background-color: white;
-        z-index: 2;
-    }
+        .fact-box p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
 
-    .card-back {
-        background-color: var(--primary-dark);
-        color: white;
-        transform: rotateY(180deg);
-    }
+        /* Sign-Up Section */
+        .signup-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--light-color);
+            margin-top: 50px;
+            border-radius: var(--border-radius);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .transplant-card.flipped .card-front {
-        transform: rotateY(180deg);
-    }
+        .signup-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
 
-    .transplant-card.flipped .card-back {
-        transform: rotateY(0);
-    }
+        .signup-section p {
+            font-size: 1.2rem;
+            margin: 20px auto;
+            max-width: 800px;
+        }
 
-    .card-icon {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 20px;
-        border-radius: 50%;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
+        .signup-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed) ease;
+            font-weight: bold;
+            margin-top: 15px;
+        }
 
-    .card-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        .signup-button:hover {
+            background-color: var(--primary-dark);
+        }
 
-    .transplant-card h3 {
-        font-size: 1.5rem;
-        margin: 0 0 15px 0;
-        text-align: center;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 60px;
+        }
 
-    .card-brief {
-        text-align: center;
-        margin-bottom: 25px;
-        flex-grow: 1;
-    }
+        /* Statistics Section */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
 
-    .back-content {
-        margin: 15px 0;
-        text-align: left;
-        width: 100%;
-    }
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+        }
 
-    .back-content p {
-        margin-bottom: 10px;
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
 
-    .flip-button {
-        padding: 8px 20px;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    .flip-button:hover {
-        background-color: var(--primary-dark);
-    }
-
-    .card-back .flip-button {
-        background-color: white;
-        color: var(--primary-dark);
-        margin-top: auto;
-    }
-
-    .card-back .flip-button:hover {
-        background-color: #f0f0f0;
-    }
-
-    /* Carousel Navigation */
-    .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        transition: background-color 0.3s ease;
-    }
-
-    .carousel-nav:hover {
-        background-color: var(--primary-dark);
-    }
-
-    .prev-button {
-        left: -20px;
-    }
-
-    .next-button {
-        right: -20px;
-    }
-
-    /* Dots Navigation */
-    .carousel-dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .dot {
-        width: 12px;
-        height: 12px;
-        background-color: #ccc;
-        border-radius: 50%;
-        margin: 0 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .dot.active {
-        background-color: var(--primary-color);
-    }
-
-    /* Interactive Chart Section */
-    .interactive-overview {
-        margin-top: 60px;
-        padding: 30px;
-        background-color: white;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-    }
-
-    .interactive-overview h3 {
-        font-size: 1.8rem;
-        color: var(--primary-dark);
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .interactive-chart {
-        max-width: 800px;
-        margin: 0 auto 30px;
-    }
-
-    .chart-container {
-        height: 300px;
-        width: 100%;
-    }
-
-    .chart-legend {
-        text-align: center;
-    }
-
-    .legend-items {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 15px;
-    }
-
-    .legend-item {
-        margin: 5px 10px;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-
-    .kidney-color { background-color: rgba(75, 192, 192, 0.2); border: 1px solid rgba(75, 192, 192, 1); }
-    .liver-color { background-color: rgba(255, 159, 64, 0.2); border: 1px solid rgba(255, 159, 64, 1); }
-    .heart-color { background-color: rgba(255, 99, 132, 0.2); border: 1px solid rgba(255, 99, 132, 1); }
-    .lung-color { background-color: rgba(54, 162, 235, 0.2); border: 1px solid rgba(54, 162, 235, 1); }
-    .pancreas-color { background-color: rgba(153, 102, 255, 0.2); border: 1px solid rgba(153, 102, 255, 1); }
-    .intestine-color { background-color: rgba(255, 206, 86, 0.2); border: 1px solid rgba(255, 206, 86, 1); }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
+        /* Transplant Types Section */
         .transplant-types-section {
-            padding: 30px 20px;
+            margin: 60px 0;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
 
-        .transplant-card {
-            min-width: 260px;
-            height: 380px;
+        .transplant-types-section header {
+            text-align: center;
+            margin-bottom: 40px;
+            height: auto;
+            background-image: none;
+            color: var(--dark-color);
+            display: block;
+            padding: 0;
         }
 
-        .prev-button {
-            left: -10px;
-        }
-
-        .next-button {
-            right: -10px;
-        }
-    }
-
-    @media (max-width: 480px) {
         .transplant-types-section header h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .transplant-types-section header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .transplant-types-section header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 15px auto 0;
+        }
+
+        /* Carousel Styles */
+        .transplant-carousel {
+            position: relative;
+            margin: 40px auto;
+            max-width: 1000px;
         }
 
         .carousel-container {
-            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .transplant-card {
-            min-width: 240px;
-            height: 360px;
-            margin: 0 10px;
+            min-width: 300px;
+            height: 400px;
+            margin: 0 15px;
+            perspective: 1000px;
+            position: relative;
         }
 
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .card-front {
+            background-color: white;
+            z-index: 2;
+        }
+
+        .card-back {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .transplant-card.flipped .card-front {
+            transform: rotateY(180deg);
+        }
+
+        .transplant-card.flipped .card-back {
+            transform: rotateY(0);
+        }
+
+        .card-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .transplant-card h3 {
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .card-brief {
+            text-align: center;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .back-content {
+            margin: 15px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .back-content p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .flip-button {
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .flip-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .card-back .flip-button {
+            background-color: white;
+            color: var(--primary-dark);
+            margin-top: auto;
+        }
+
+        .card-back .flip-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Carousel Navigation */
         .carousel-nav {
-            width: 30px;
-            height: 30px;
-            font-size: 1.2rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
         }
-    }
-</style>
 
-<!-- JavaScript for Transplant Types Section -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Card Flip Functionality
-        const flipButtons = document.querySelectorAll('.flip-button');
-        flipButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const card = this.closest('.transplant-card');
-                card.classList.toggle('flipped');
-            });
-        });
+        .carousel-nav:hover {
+            background-color: var(--primary-dark);
+        }
 
-        // Carousel Functionality
-        const track = document.querySelector('.carousel-track');
-        const cards = document.querySelectorAll('.transplant-card');
-        const cardWidth = cards[0].offsetWidth + 30; // card width + margin
-        const prevButton = document.querySelector('.prev-button');
-        const nextButton = document.querySelector('.next-button');
-        const dots = document.querySelectorAll('.dot');
+        .prev-button {
+            left: -20px;
+        }
 
-        let currentIndex = 0;
-        const visibleCards = Math.floor(track.offsetWidth / cardWidth);
-        const maxIndex = cards.length - visibleCards;
+        .next-button {
+            right: -20px;
+        }
 
-        // Update the carousel position
-        function updateCarousel() {
-            track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        /* Dots Navigation */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* Interactive Chart Section */
+        .interactive-overview {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .interactive-overview h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .interactive-chart {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .chart-container {
+            height: 300px;
+            width: 100%;
+        }
+
+        .chart-legend {
+            text-align: center;
+        }
+
+        .legend-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .legend-item {
+            margin: 5px 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .kidney-color { background-color: rgba(75, 192, 192, 0.2); border: 1px solid rgba(75, 192, 192, 1); }
+        .liver-color { background-color: rgba(255, 159, 64, 0.2); border: 1px solid rgba(255, 159, 64, 1); }
+        .heart-color { background-color: rgba(255, 99, 132, 0.2); border: 1px solid rgba(255, 99, 132, 1); }
+        .lung-color { background-color: rgba(54, 162, 235, 0.2); border: 1px solid rgba(54, 162, 235, 1); }
+        .pancreas-color { background-color: rgba(153, 102, 255, 0.2); border: 1px solid rgba(153, 102, 255, 1); }
+        .intestine-color { background-color: rgba(255, 206, 86, 0.2); border: 1px solid rgba(255, 206, 86, 1); }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+            header h1 {
+                font-size: 3rem;
+            }
             
-            // Update active dot
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[Math.min(currentIndex, dots.length - 1)].classList.add('active');
+            .fact-box {
+                flex: 1 1 calc(50% - 40px);
+            }
         }
 
-        // Event listeners for navigation buttons
-        prevButton.addEventListener('click', () => {
-            currentIndex = Math.max(0, currentIndex - 1);
-            updateCarousel();
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = Math.min(maxIndex, currentIndex + 1);
-            updateCarousel();
-        });
-
-        // Event listeners for dots
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                currentIndex = parseInt(this.getAttribute('data-index'));
-                updateCarousel();
-            });
-        });
-
-        // Initialize Chart.js
-        const ctx = document.getElementById('transplantChart').getContext('2d');
-        const transplantData = {
-            labels: ['Kidney', 'Liver', 'Heart', 'Lung', 'Pancreas', 'Intestine'],
-            datasets: [{
-                label: 'Annual Transplants (USA)',
-                data: [24000, 9500, 3800, 2500, 1000, 200],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
-                borderWidth: 1
-            }]
-        };
-
-        // Create and render the chart
-        const transplantChart = new Chart(ctx, {
-            type: 'bar',
-            data: transplantData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Number of Transplants'
-                        }
-                    }
-                }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
             }
-        });
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
+            .facts {
+                flex-direction: column;
+            }
+            
+            .fact-box {
+                flex: 1 1 100%;
+            }
+            
+            .transplant-types-section {
+                padding: 30px 20px;
+            }
+
+            .transplant-card {
+                min-width: 260px;
+                height: 380px;
+            }
+
+            .prev-button {
+                left: -10px;
+            }
+
+            .next-button {
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 90vh;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .transplant-types-section header h2 {
+                font-size: 2rem;
+            }
+
+            .carousel-container {
+                padding: 10px 0;
+            }
+
+            .transplant-card {
+                min-width: 240px;
+                height: 360px;
+                margin: 0 10px;
+            }
+
+            .carousel-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="page.html">About Transplants</a>
+        <a href="page2.html">Life After Transplant</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Organ Donation Saves Lives</h1>
+            <p>Be a Hero. Save Lives. Make a Difference.</p>
+            <a href="#about">Learn More</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>Why Donate?</h2>
+        <p>Organ donation is one of the most selfless acts a person can perform, offering the gift of life to those in critical need. When you register as an organ donor, you're creating a legacy that can transform tragedy into hope. Each year, thousands of lives are saved through transplantation, giving recipients a second chance at life and allowing them to return to their families, careers, and passions.</p>
         
-        // Connect the "Learn more about transplant types" link to this section
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('read-more-link') && e.target.textContent.includes('transplant types')) {
-                e.preventDefault();
-                document.getElementById('transplant-types').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            }
-        });
-    });
-</script>
+        <!-- Statistics Section -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="106000">106,000+</div>
+                <div class="stat-label">People on waiting lists</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="39000">39,000+</div>
+                <div class="stat-label">Transplants performed yearly</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="75">75</div>
+                <div class="stat-label">Transplants each day</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section id="facts" class="section">
+        <h2>Facts About Organ Donation</h2>
+        <div class="facts">
+            <div class="fact-box">
+                <h3>One Donor Can Save Up to 8 Lives</h3>
+                <p>A single organ donor can save up to eight lives through the donation of vital organs including the heart, two lungs, liver, pancreas, two kidneys, and intestines. Additionally, tissue donation can enhance the lives of over 75 people through corneas, skin, bone, heart valves, and connective tissues.</p>
+            </div>
+            <div class="fact-box">
+                <h3>Anyone Can Be a Donor</h3>
+                <p>People of all ages and medical histories should consider organ donation. Your medical condition at the time of death will determine what organs and tissues can be donated. Even those with serious health conditions can sometimes be donors. Medical professionals evaluate each potential donor on a case-by-case basis.</p>
+            </div>
+            <div class="fact-box">
+                <h3>It's a Simple Process</h3>
+                <p>Registering as an organ donor is quick and straightforward. You can sign up online in minutes through your state's donor registry, or during your next driver's license renewal. Once registered, be sure to inform your family of your decision to ensure your wishes are known and respected.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Organ Transplants Section (Newly Added) -->
+    <section class="transplant-types-section" id="transplant-types">
+        <header>
+            <h2>Types of Organ Transplants</h2>
+            <p>Each type of organ transplant presents unique challenges and benefits. Explore the different procedures below to learn about these life-saving operations.</p>
+        </header>
+
+        <div class="transplant-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Kidney Transplant -->
+                    <div class="transplant-card" id="kidney">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://med.stanford.edu/content/dam/sm-news/images/2014/06/kidney-stock.jpg" alt="Kidney Icon">
+                            </div>
+                            <h3>Kidney Transplant</h3>
+                            <p class="card-brief">Most common type of organ transplant performed worldwide.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Kidney Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 90-95% one-year survival rate</p>
+                                <p><strong>Waiting List:</strong> Approximately 90,000 people</p>
+                                <p><strong>Living Donors:</strong> Possible (a person can live with just one kidney)</p>
+                                <p>Kidney transplants are performed to replace kidneys damaged by conditions like diabetes, high blood pressure, and polycystic kidney disease. The procedure typically takes 3-4 hours.</p>
+                            </div>
+                            <button class="flip-button">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Liver Transplant -->
+                    <div class="transplant-card" id="liver">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://english-blog.s3.amazonaws.com/uploads/2020/02/Apprehend-These-General-Symptoms-of-liver-problems-by-Dr.-Mukul-Rastogi.jpg" alt="Liver Icon">
+                            </div>
+                            <h3>Liver Transplant</h3>
+                            <p class="card-brief">Second most common transplant, with partial donation possible.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Liver Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 75-85% five-year survival rate</p>
+                                <p><strong>Waiting List:</strong> Around 11,000 people</p>
+                                <p><strong>Living Donors:</strong> Possible (partial liver donation)</p>
+                                <p>Liver transplants treat end-stage liver disease and acute liver failure. The liver's unique ability to regenerate allows for living donation where a portion of a healthy liver can be transplanted.</p>
+                            </div>
+                            <button class="flip-button">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Heart Transplant -->
+                    <div class="transplant-card" id="heart">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://static.scientificamerican.com/sciam/cache/file/FD15AD20-2802-451C-942571A139012C77_source.jpg?crop=1%3A1%2Csmart&w=1000" alt="Heart Icon">
+                            </div>
+                            <h3>Heart Transplant</h3>
+                            <p class="card-brief">Life-saving procedure for end-stage heart failure.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Heart Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 85-90% one-year survival rate</p>
+                                <p><strong>Waiting List:</strong> About 3,500 people</p>
+                                <p><strong>Living Donors:</strong> Not possible</p>
+                                <p>Heart transplants are performed for patients with severe heart failure who have not responded to other treatments. The procedure is complex and requires careful matching of donor size and blood type.</p>
+                            </div>
+                            <button class="flip-button">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Lung Transplant -->
+                    <div class="transplant-card" id="lung">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://cdn.3d4medical.com/media/blog/auscultation-lungs/snippet-auscultation-lungs.jpg" alt="Lung Icon">
+                            </div>
+                            <h3>Lung Transplant</h3>
+                            <p class="card-brief">Can involve one or both lungs depending on the condition.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Lung Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 80-85% one-year survival rate</p>
+                                <p><strong>Waiting List:</strong> Around 1,000 people</p>
+                                <p><strong>Living Donors:</strong> Possible (lobar donation)</p>
+                                <p>Lung transplants treat advanced lung diseases like cystic fibrosis, COPD, and pulmonary fibrosis. Single lung, double lung, or heart-lung transplants may be performed depending on the patient's condition.</p>
+                            </div>
+                            <button class="flip-button">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Pancreas Transplant -->
+                    <div class="transplant-card" id="pancreas">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://media.istockphoto.com/id/1401150101/vector/pancreas-human-internal-organ-anatomy-vector-illustration-on-a-white-background-flat-design.jpg?s=612x612&w=0&k=20&c=2z2BLXqOGNBfWCa2wpaWfSrX-cnwSymyM9MvjIuV1bQ=" alt="Pancreas Icon">
+                            </div>
+                            <h3>Pancreas Transplant</h3>
+                            <p class="card-brief">Often performed alongside kidney transplants for diabetic patients.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Pancreas Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 75-80% one-year graft survival</p>
+                                <p><strong>Waiting List:</strong> Approximately 1,200 people</p>
+                                <p><strong>Living Donors:</strong> Not typically possible</p>
+                                <p>Pancreas transplants are primarily performed for type 1 diabetes patients with kidney failure. The procedure can free patients from insulin dependency and prevent further diabetic complications.</p>
+                            </div>
+                            <button class="flip-button">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Intestinal Transplant -->
+                    <div class="transplant-card" id="intestine">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <img src="https://innerbody.imgix.net/intestines.png" alt="Intestine Icon">
+                            </div>
+                            <h3>Intestinal Transplant</h3>
+                            <p class="card-brief">Rare and complex procedure for intestinal failure.</p>
+                            <button class="flip-button">Learn More</button>
+                        </div>
+                        <div class="card-back">
+                            <h3>Intestinal Transplant</h3>
+                            <div class="back-content">
+                                <p><strong>Success Rate:</strong> 65-70% one-year survival rate</p>
+                                <p><strong>Waiting List:</strong> Around 250 people</p>
+                                <p><strong>Living Donors:</strong> Not possible</p>
+                                <p>Intestinal transplants are performed for patients with intestinal failure who cannot absorb nutrients and require total parenteral nutrition (TPN). This complex procedure may include transplantation of
