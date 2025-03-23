@@ -6,55 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Organ Donation Awareness</title>
     <style>
+        /* Global Variables for Consistent Styling - Matching other page */
+        :root {
+            --primary-color: #28a745;
+            --primary-dark: #1e7e34;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-main: 'Arial', sans-serif;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
+            --transition-speed: 0.3s;
+        }
+
         /* Global Styles */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Matched with other page */
         nav {
-            background-color: #333;
-            padding: 10px 20px;
+            background-color: var(--dark-color);
+            padding: 15px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all var(--transition-speed) ease;
         }
 
         nav a:hover {
-            color: #28a745;
+            color: white;
+            background-color: var(--primary-color);
         }
 
-        /* Header Styles */
+        /* Header Styles - Enhanced */
         header {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #28a745;
             color: white;
             text-align: center;
             padding: 0 20px;
             position: relative;
-            background-image: url('https://source.unsplash.com/1600x900/?nature,donation');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?donation,medical');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
         }
 
         header h1 {
@@ -71,35 +103,51 @@
         }
 
         header a {
-            color: #28a745;
+            color: var(--primary-color);
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: bold;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: white;
             border-radius: 50px;
             margin-top: 30px;
             display: inline-block;
-            transition: background-color 0.3s;
+            transition: all var(--transition-speed) ease;
+            box-shadow: var(--box-shadow);
         }
 
         header a:hover {
-            background-color: #f4f4f4;
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
         }
 
-        /* About Section */
+        /* About Section - Enhanced */
         .section {
             padding: 100px 20px;
             text-align: center;
             background-color: white;
-            color: #333;
+            color: var(--dark-color);
         }
 
         .section h2 {
-            font-size: 3rem;
-            color: #28a745;
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 30px;
             text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
 
         .section p {
@@ -109,32 +157,37 @@
             margin: 0 auto;
         }
 
-        /* Facts Section */
+        /* Facts Section - Enhanced */
         .facts {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
             margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .fact-box {
             background-color: #fff;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             padding: 30px;
-            flex: 1 1 calc(33.33% - 20px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(33.33% - 40px);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border-left: 5px solid var(--primary-color);
         }
 
         .fact-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--hover-shadow);
         }
 
         .fact-box h3 {
-            font-size: 2rem;
-            color: #28a745;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 0;
         }
 
         .fact-box p {
@@ -143,96 +196,215 @@
             line-height: 1.6;
         }
 
-        /* Sign-Up Section */
+        /* Sign-Up Section - Enhanced */
         .signup-section {
             text-align: center;
-            padding: 50px 20px;
-            background-color: #e0e0e0;
+            padding: 60px 20px;
+            background-color: var(--light-color);
             margin-top: 50px;
+            border-radius: var(--border-radius);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .signup-section h2 {
             font-size: 2.5rem;
-            color: #333;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
         }
 
         .signup-section p {
             font-size: 1.2rem;
-            margin: 20px 0;
+            margin: 20px auto;
+            max-width: 800px;
         }
 
         .signup-button {
             display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
             color: white;
-            background-color: #28a745;
+            background-color: var(--primary-color);
             text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed) ease;
+            font-weight: bold;
+            margin-top: 15px;
         }
 
         .signup-button:hover {
-            background-color: #218838;
+            background-color: var(--primary-dark);
         }
 
-        /* Footer */
+        /* Footer - Matched with other page */
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: #333;
+            padding: 25px;
+            background-color: var(--dark-color);
             color: white;
+            margin-top: 60px;
+        }
+
+        /* Statistics Section - New Addition */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Media Queries - Added for better responsive design */
+        @media (max-width: 900px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            
+            .fact-box {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
+            .facts {
+                flex-direction: column;
+            }
+            
+            .fact-box {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 90vh;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar - Matched with other page -->
     <nav>
         <a href="index.html">Home</a>
-        <a href="page.html">More About Organ Transplant</a>
-        <a href="page2.html">Effects & Aftermath</a>
+        <a href="page.html">About Transplants</a>
+        <a href="page2.html">Life After Transplant</a>
     </nav>
 
+    <!-- Header Section - Enhanced -->
     <header>
-        <div>
+        <div class="header-content">
             <h1>Organ Donation Saves Lives</h1>
             <p>Be a Hero. Save Lives. Make a Difference.</p>
             <a href="#about">Learn More</a>
         </div>
     </header>
 
+    <!-- About Section - Enhanced content -->
     <section id="about" class="section">
         <h2>Why Donate?</h2>
-        <p>Organ transplants have been an essential part of people's lives. The surgeries have saved countless lives over the years.</p>
+        <p>Organ donation is one of the most selfless acts a person can perform, offering the gift of life to those in critical need. When you register as an organ donor, you're creating a legacy that can transform tragedy into hope. Each year, thousands of lives are saved through transplantation, giving recipients a second chance at life and allowing them to return to their families, careers, and passions.</p>
+        
+        <!-- Added Statistics Section -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="106000">106,000+</div>
+                <div class="stat-label">People on waiting lists</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="39000">39,000+</div>
+                <div class="stat-label">Transplants performed yearly</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="75">75</div>
+                <div class="stat-label">Transplants each day</div>
+            </div>
+        </div>
     </section>
 
+    <!-- Facts Section - Content enhanced -->
     <section id="facts" class="section">
         <h2>Facts About Organ Donation</h2>
         <div class="facts">
             <div class="fact-box">
                 <h3>One Donor Can Save Up to 8 Lives</h3>
-                <p>Organs from a single donor can help save or improve the lives of 8 people.</p>
+                <p>A single organ donor can save up to eight lives through the donation of vital organs including the heart, two lungs, liver, pancreas, two kidneys, and intestines. Additionally, tissue donation can enhance the lives of over 75 people through corneas, skin, bone, heart valves, and connective tissues.</p>
             </div>
             <div class="fact-box">
-                <h3>Thousands Are Waiting</h3>
-                <p>There are currently thousands of people on the organ transplant list, waiting for a life-saving donation.</p>
+                <h3>Anyone Can Be a Donor</h3>
+                <p>People of all ages and medical histories should consider organ donation. Your medical condition at the time of death will determine what organs and tissues can be donated. Even those with serious health conditions can sometimes be donors. Medical professionals evaluate each potential donor on a case-by-case basis.</p>
             </div>
             <div class="fact-box">
                 <h3>It's a Simple Process</h3>
-                <p>Registering as an organ donor is simple and could make a huge difference in someone’s life.</p>
+                <p>Registering as an organ donor is quick and straightforward. You can sign up online in minutes through your state's donor registry, or during your next driver's license renewal. Once registered, be sure to inform your family of your decision to ensure your wishes are known and respected.</p>
             </div>
         </div>
     </section>
 
+    <!-- Sign-Up Section - Enhanced styling -->
     <section class="signup-section">
         <h2>Ready to Make a Difference?</h2>
-        <p>Sign up to become an organ donor today and help save lives.</p>
-        <a href="https://www.services.gov.on.ca/wps95/portal/s2i/!ut/p/z1/dctRC4IwFIbhf7QzZ5hdmoSBXQgTaruRo64xlDNJU-jXZ94VdPm9PB9ouIEmnJ3FyXnCft1KR1UmTjwIMr47lyXn0aU4JHGehzwNQa1g_xfIACRo0FK4IzZd6a-OWr-AapB5YtbPbBSOLVtlvn2wccLpOX59CrTm9zGsbfOO7v6jeyQLyhBIQ1WawNBh_TJ1_AbVfydN/" class="signup-button">Sign Up</a>
+        <p>By registering as an organ donor today, you're making a commitment to potentially save multiple lives in the future. It takes just a few minutes to register, but the impact of your decision can last generations.</p>
+        <a href="https://www.organdonor.gov/register.html" class="signup-button">Register as a Donor</a>
     </section>
 
+    <!-- Footer - Matched with other page -->
     <footer>
-        <p>&copy; 2025 Organ Donation Awareness by Dhruv and Aayush</p>
+        <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
     </footer>
 
+    <!-- JavaScript for potential animation effects -->
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Optional: Add animation for statistics if desired
+        // This is a placeholder for future functionality
+    </script>
 </body>
 </html>
