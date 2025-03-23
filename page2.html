@@ -10,9 +10,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #28a745;
+            background-color: #f4f4f4;
             color: #333;
-            overflow-x: hidden;
         }
         nav {
             background-color: #333;
@@ -28,13 +27,12 @@
             margin: 0 20px;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: color 0.3s;
         }
         nav a:hover {
             color: #28a745;
         }
         .hero {
-            height: 100vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -42,40 +40,24 @@
             background-image: url('https://source.unsplash.com/1600x900/?health,hospital');
             background-size: cover;
             background-position: center;
-            position: relative;
             color: white;
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
         }
         .hero-content {
-            position: relative;
-            max-width: 800px;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
         }
         .section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            padding: 60px 20px;
+            max-width: 1100px;
             margin: auto;
             text-align: center;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: -50px;
-            z-index: 2;
-            position: relative;
         }
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
         .info-box {
             perspective: 1000px;
@@ -84,7 +66,7 @@
         .flip-card-inner {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 220px;
             transform-style: preserve-3d;
             transition: transform 0.6s;
         }
@@ -100,18 +82,25 @@
             align-items: center;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
         }
         .flip-card-front {
-            background: #fff;
+            background: white;
             border: 2px solid #28a745;
         }
         .flip-card-back {
             background: #28a745;
             color: white;
             transform: rotateY(180deg);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -124,7 +113,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Life After Organ Transplant</h1>
-            <p>Understanding the recovery process and long-term effects of organ transplantation</p>
+            <p>Understanding the recovery process and long-term effects</p>
         </div>
     </section>
     <div class="section">
@@ -134,10 +123,10 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h3>Recovery Process</h3>
-                        <p>Click to flip</p>
+                        <p>Click to Flip</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Fill in your own content here</p>
+                        <p>Recovery takes months, requiring rest and medical monitoring.</p>
                     </div>
                 </div>
             </div>
@@ -145,32 +134,32 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h3>Medications</h3>
-                        <p>Click to flip</p>
+                        <p>Click to Flip</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Fill in your own content here</p>
+                        <p>Immunosuppressants prevent rejection but require careful use.</p>
                     </div>
                 </div>
             </div>
             <div class="info-box" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Emotional & Mental Effects</h3>
-                        <p>Click to flip</p>
+                        <h3>Mental Effects</h3>
+                        <p>Click to Flip</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Fill in your own content here</p>
+                        <p>Emotional support is essential for post-transplant well-being.</p>
                     </div>
                 </div>
             </div>
             <div class="info-box" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Long-Term Health Monitoring</h3>
-                        <p>Click to flip</p>
+                        <h3>Health Monitoring</h3>
+                        <p>Click to Flip</p>
                     </div>
                     <div class="flip-card-back">
-                        <p>Fill in your own content here</p>
+                        <p>Regular check-ups ensure organ function and long-term health.</p>
                     </div>
                 </div>
             </div>
