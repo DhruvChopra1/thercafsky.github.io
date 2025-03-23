@@ -129,11 +129,11 @@
             margin: 15px auto 0;
         }
 
-        /* Section with Blocks - Improved Layout */
+        /* Section with Blocks - UPDATED with more spacing */
         .info-section {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
+            gap: 50px; /* Increased from 30px to 50px */
             margin-top: 40px;
         }
 
@@ -147,6 +147,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            margin-bottom: 20px; /* Added margin bottom for more space */
         }
 
         .info-block:hover {
@@ -157,7 +158,7 @@
         .info-block-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px; /* Increased from 15px */
         }
 
         .info-block-icon {
@@ -186,6 +187,7 @@
             color: #555;
             line-height: 1.8;
             flex-grow: 1;
+            margin-bottom: 20px; /* Added margin for spacing */
         }
 
         .read-more-link {
@@ -421,19 +423,19 @@
             <h2>The Impact of Organ Donation</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">106,000+</div>
+                    <div class="stat-number" data-count="106000">0</div>
                     <div class="stat-label">People on the waiting list</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">17</div>
+                    <div class="stat-number" data-count="17">0</div>
                     <div class="stat-label">People die each day waiting</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">8</div>
+                    <div class="stat-number" data-count="8">0</div>
                     <div class="stat-label">Lives saved by one donor</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">75</div>
+                    <div class="stat-number" data-count="75">0</div>
                     <div class="stat-label">Transplants each day</div>
                 </div>
             </div>
@@ -452,5 +454,78 @@
         <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
     </footer>
 
+    <!-- JavaScript for counting animation -->
+    <script>
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Function to animate counting
+        function animateCountUp(element) {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000; // 2 seconds
+            const steps = 50;
+            const stepTime = duration / steps;
+            let current = 0;
+            const increment = target / steps;
+            
+            // Special formatting for numbers with commas
+            const hasCommas = target > 999;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    if (hasCommas) {
+                        element.textContent = target.toLocaleString()+'+';
+                    } else {
+                        element.textContent = target;
+                    }
+                    clearInterval(timer);
+                } else {
+                    if (hasCommas) {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }
+            }, stepTime);
+        }
+        
+        // Track if animations have started
+        let animationsStarted = false;
+        
+        // Check for elements in viewport on scroll
+        document.addEventListener('scroll', function() {
+            if (!animationsStarted) {
+                const statsSection = document.querySelector('.stats-section');
+                if (isInViewport(statsSection)) {
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    statNumbers.forEach(element => {
+                        animateCountUp(element);
+                    });
+                    animationsStarted = true;
+                }
+            }
+        });
+        
+        // Also check on page load in case stats are already visible
+        document.addEventListener('DOMContentLoaded', function() {
+            const statsSection = document.querySelector('.stats-section');
+            if (isInViewport(statsSection)) {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers.forEach(element => {
+                    animateCountUp(element);
+                });
+                animationsStarted = true;
+            }
+        });
+    </script>
 </body>
 </html>
