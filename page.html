@@ -625,16 +625,43 @@
 <!-- CSS for the Transplant Types Section -->
 <style>
     /* Transplant Types Section */
- .transplant-types-section {
-    margin: 60px 0;
-    padding: 40px;
-    background-image: url('https://unos.org/wp-content/uploads/OP_OrganOx_metra_withSurgeons.jpg'); /* Add your image URL here */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
+<!-- Find the existing .transplant-types-section CSS rule and modify it -->
+<style>
+    /* Transplant Types Section */
+    .transplant-types-section {
+        margin: 60px 0;
+        padding: 40px;
+        /* Replace the background-color with a background image */
+        background-color: transparent; /* Remove the solid color */
+        background-image: url('https://unos.org/wp-content/uploads/OP_OrganOx_metra_withSurgeons.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        /* Add a semi-transparent overlay to ensure text remains readable */
+        position: relative;
+    }
+    
+    /* Add an overlay to ensure text readability against the image */
+    .transplant-types-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white overlay */
+        border-radius: var(--border-radius);
+        z-index: 0;
+    }
+    
+    /* Ensure all content is positioned above the overlay */
+    .transplant-types-section > * {
+        position: relative;
+        z-index: 1;
+    }
+</style>
 
     .transplant-types-section header {
         text-align: center;
