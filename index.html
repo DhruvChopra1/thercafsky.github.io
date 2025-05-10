@@ -3,409 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Organ Donation Awareness</title>
+    <title>Royal Canadian Air Force</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat&display=swap" rel="stylesheet">
     <style>
-        /* Global Variables for Consistent Styling - Matching other page */
         :root {
-            --primary-color: #dc3545;
-            --primary-dark: #c82333;
-            --secondary-color: #dc3545;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-            --font-main: 'Arial', sans-serif;
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            --border-radius: 10px;
+            --primary-color: #d32f2f; /* RCAF Red */
+            --secondary-color: #ffffff;
+            --dark-color: #111111;
+            --accent-color: #e53935;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
             --transition-speed: 0.3s;
         }
 
-        /* Global Styles */
         body {
             margin: 0;
-            padding: 0;
-            font-family: var(--font-main);
-            background-color: var(--light-color);
+            font-family: var(--font-body);
+            background-color: var(--secondary-color);
             color: var(--dark-color);
-            line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Navigation Bar - Matched with other page */
         nav {
-            background-color: var(--dark-color);
-            padding: 15px 20px;
-            text-align: center;
             position: sticky;
             top: 0;
+            background-color: var(--dark-color);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
-            color: white;
+            color: var(--secondary-color);
+            margin: 0 15px;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.1rem;
             font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: all var(--transition-speed) ease;
+            text-transform: uppercase;
+            transition: color var(--transition-speed);
         }
 
         nav a:hover {
-            color: white;
-            background-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
-        /* Header Styles - Enhanced */
         header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://www.rcafassociation.ca/wp-content/uploads/2020/05/RCAF_2020.jpg') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: white;
             text-align: center;
-            padding: 0 20px;
-            position: relative;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.ottawahospital.on.ca/wp-content/uploads/2021/04/Organ_Donation_FAQ_The_Ottawa_Hospital.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; } 
+            color: white;
         }
 
         .header-content {
             max-width: 800px;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(5px);
+            padding: 40px;
         }
 
-        header h1 {
+        .header-content h1 {
             font-size: 4rem;
-            letter-spacing: 3px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        header a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 12px 25px;
-            background-color: white;
-            border-radius: 50px;
-            margin-top: 30px;
-            display: inline-block;
-            transition: all var(--transition-speed) ease;
-            box-shadow: var(--box-shadow);
-        }
-
-        header a:hover {
-            background-color: var(--light-color);
-            transform: translateY(-3px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        /* About Section - Enhanced */
-        .section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: white;
-            color: var(--dark-color);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        .section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Facts Section - Enhanced */
-        .facts {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .fact-box {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            flex: 1 1 calc(33.33% - 40px);
-            box-shadow: var(--box-shadow);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            border-left: 5px solid var(--primary-color);
-        }
-
-        .fact-box:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .fact-box h3 {
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin-top: 0;
-        }
-
-        .fact-box p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Sign-Up Section - Enhanced */
-        .signup-section {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--light-color);
-            margin-top: 50px;
-            border-radius: var(--border-radius);
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .signup-section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
+            font-family: var(--font-heading);
             margin-bottom: 20px;
         }
 
-        .signup-section p {
-            font-size: 1.2rem;
-            margin: 20px auto;
-            max-width: 800px;
+        .header-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
         }
 
-        .signup-button {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            color: white;
+        .header-content a {
             background-color: var(--primary-color);
+            padding: 12px 30px;
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color var(--transition-speed) ease;
+            border-radius: 50px;
             font-weight: bold;
-            margin-top: 15px;
+            transition: background var(--transition-speed);
         }
 
-        .signup-button:hover {
-            background-color: var(--primary-dark);
+        .header-content a:hover {
+            background-color: var(--accent-color);
         }
 
-        /* Footer - Matched with other page */
-        footer {
+        section.intro {
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
             text-align: center;
-            padding: 25px;
+        }
+
+        section.intro h2 {
+            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        section.intro p {
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            padding: 60px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+
+        .timeline ul {
+            max-width: 900px;
+            margin: auto;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline li {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .timeline li h3 {
+            margin-top: 0;
+            font-family: var(--font-heading);
+        }
+
+        .facts-section {
             background-color: var(--dark-color);
             color: white;
-            margin-top: 60px;
-        }
-
-        /* Statistics Section - New Addition */
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 50px auto;
-            max-width: 1000px;
-        }
-
-        .stat-item {
+            padding: 60px 20px;
             text-align: center;
-            padding: 20px;
-            margin: 10px;
         }
 
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
+        .facts-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 10px;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .fact-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 150px;
+            position: relative;
         }
 
-        /* Media Queries - Added for better responsive design */
-        @media (max-width: 900px) {
-            header h1 {
-                font-size: 3rem;
-            }
-            
-            .fact-box {
-                flex: 1 1 calc(50% - 40px);
-            }
+        .fact-carousel div {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease;
+            font-size: 1.2rem;
+            max-width: 700px;
         }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav a {
-                margin: 0 10px;
-                font-size: 1rem;
-            }
-            
-            .facts {
-                flex-direction: column;
-            }
-            
-            .fact-box {
-                flex: 1 1 100%;
-            }
+        .fact-carousel div.active {
+            opacity: 1;
         }
 
-        @media (max-width: 480px) {
-            header {
-                height: 90vh;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar - Matched with other page -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="page.html">About Transplants</a>
-        <a href="page2.html">Life After Transplant</a>
-        <a href="aboutus.html">About Us</a>
+        <div><strong>RCAF</strong></div>
+        <div>
+            <a href="#">Home</a>
+            <a href="#history">History</a>
+            <a href="#facts">Facts</a>
+            <a href="#about">About</a>
+        </div>
     </nav>
 
-    <!-- Header Section - Enhanced -->
     <header>
         <div class="header-content">
-            <h1>Organ Donation Saves Lives</h1>
-            <p>Be a Hero. Save Lives. Make a Difference.</p>
+            <h1>Royal Canadian Air Force</h1>
+            <p>Serving with pride since 1924</p>
             <a href="#about">Learn More</a>
         </div>
     </header>
 
-    <!-- About Section - Enhanced content -->
-    <section id="about" class="section">
-        <h2>Why Donate?</h2>
-        <p>Organ donation is one of the most selfless acts a person can perform, offering the gift of life to those in critical need. When you register as an organ donor, you're creating a legacy that can transform tragedy into hope. Each year, thousands of lives are saved through transplantation, giving recipients a second chance at life and allowing them to return to their families, careers, and passions.</p>
-        
-        <!-- Added Statistics Section -->
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number" data-count="106000">106,000+</div>
-                <div class="stat-label">People on waiting lists</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="39000">39,000+</div>
-                <div class="stat-label">Transplants performed yearly</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="75">75</div>
-                <div class="stat-label">Transplants each day</div>
-            </div>
+    <section class="intro" id="about">
+        <h2>What is the RCAF?</h2>
+        <p>The Royal Canadian Air Force (RCAF) is the air and space force of Canada. Established on April 1, 1924, it protects Canadian sovereignty and contributes to peace worldwide. The RCAF performs vital missions including surveillance, air defence, search and rescue, and international operations.</p>
+    </section>
+
+    <section class="timeline" id="history">
+        <h2>Timeline of the RCAF</h2>
+        <ul>
+            <li>
+                <h3>1924 – RCAF is Founded</h3>
+                <p>Canada formally establishes the Royal Canadian Air Force to manage its growing aviation needs.</p>
+            </li>
+            <li>
+                <h3>1939-1945 – WWII Involvement</h3>
+                <p>Over 250,000 Canadians serve; RCAF becomes the fourth-largest Allied air force, crucial in bombings and reconnaissance missions.</p>
+            </li>
+            <li>
+                <h3>1940s – BCATP Established</h3>
+                <p>Canada trains 130,000+ Allied aircrew in 107 schools, earning global praise and the nickname "Aerodrome of Democracy".</p>
+            </li>
+            <li>
+                <h3>Present – Modern RCAF</h3>
+                <p>With advanced aircraft and global missions, the RCAF remains vital to Canada’s national defence and international cooperation.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="facts-section" id="facts">
+        <h2>Did You Know?</h2>
+        <div class="fact-carousel">
+            <div class="active">The RCAF flew over 1 million sorties in WWII.</div>
+            <div>The RCAF has over 390 active aircraft today.</div>
+            <div>Billy Bishop, Canada’s top flying ace, had 72 confirmed victories.</div>
+            <div>Canada trained more than 130,000 aircrew from Allied nations.</div>
+            <div>The RCAF was once the 4th largest air force in the world.</div>
         </div>
     </section>
 
-    <!-- Facts Section - Content enhanced -->
-    <section id="facts" class="section">
-        <h2>Facts About Organ Donation</h2>
-        <div class="facts">
-            <div class="fact-box">
-                <h3>One Donor Can Save Up to 8 Lives</h3>
-                <p>A single organ donor can save up to eight lives through the donation of vital organs including the heart, two lungs, liver, pancreas, two kidneys, and intestines. Additionally, tissue donation can enhance the lives of over 75 people through corneas, skin, bone, heart valves, and connective tissues.</p>
-            </div>
-            <div class="fact-box">
-                <h3>Anyone Can Be a Donor</h3>
-                <p>People of all ages and medical histories should consider organ donation. Your medical condition at the time of death will determine what organs and tissues can be donated. Even those with serious health conditions can sometimes be donors. Medical professionals evaluate each potential donor on a case-by-case basis.</p>
-            </div>
-            <div class="fact-box">
-                <h3>It's a Simple Process</h3>
-                <p>Registering as an organ donor is quick and straightforward. You can sign up online in minutes through your state's donor registry, or during your next driver's license renewal. Once registered, be sure to inform your family of your decision to ensure your wishes are known and respected.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sign-Up Section - Enhanced styling -->
-    <section class="signup-section">
-        <h2>Ready to Make a Difference?</h2>
-        <p>By registering as an organ donor today, you're making a commitment to potentially save multiple lives in the future. It takes just a few minutes to register, but the impact of your decision can last generations.</p>
-        <a href="https://www.organdonor.gov/register.html" class="signup-button">Register as a Donor</a>
-    </section>
-
-    <!-- Footer - Matched with other page -->
     <footer>
-        <p>&copy; 2025 Organ Donation Awareness | Making a difference one life at a time</p>
+        <p>&copy; 2025 Royal Canadian Air Force Tribute | Educational Purpose Only</p>
     </footer>
 
-    <!-- JavaScript for potential animation effects -->
     <script>
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Optional: Add animation for statistics if desired
-        // This is a placeholder for future functionality
+        // Simple rotating facts
+        const facts = document.querySelectorAll('.fact-carousel div');
+        let currentFact = 0;
+
+        setInterval(() => {
+            facts[currentFact].classList.remove('active');
+            currentFact = (currentFact + 1) % facts.length;
+            facts[currentFact].classList.add('active');
+        }, 4000);
     </script>
 </body>
 </html>
